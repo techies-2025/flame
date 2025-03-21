@@ -82,8 +82,8 @@ const Page = () => {
         </svg>
         <span>Login with Google</span>
       </Button>
-      <p>OR</p>
-      <Input placeholder="First Name" />
+      {/* <p>OR</p> */}
+      {/* <Input placeholder="First Name" />
       <Input placeholder="Last Name" />
       <Input placeholder="Email" />
       <Input placeholder="Password" />
@@ -96,7 +96,7 @@ const Page = () => {
         <a href="/login" className="text-blue-500">
           Login
         </a>
-      </p>
+      </p> */}
     </form>
   );
 };
