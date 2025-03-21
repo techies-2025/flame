@@ -8,10 +8,16 @@ export default function Home() {
     <>
       <header className="p-2 flex items-center gap-3 border-b border-gray-200 px-6">
         <Logo />
-        <Button variant={"outline"} className="ml-auto">
-          Sign In
-        </Button>
-        <Button>Sign Up</Button>
+        <Link href="/signup" className="ml-auto">
+          <Button variant={"outline"}>
+            Sign In
+          </Button>
+        </Link>
+        <Link href='/signup'>
+          <Button>
+            Sign Up
+          </Button>
+        </Link>
       </header>
       <main>
         <section className="flex flex-col items-center justify-center gap-4 py-16">

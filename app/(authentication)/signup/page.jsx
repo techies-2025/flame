@@ -1,14 +1,61 @@
-import React from "react";
-import { Input } from "@/components/ui/input";
-import Logo from "@/components/ui/logo";
-import { Button } from "@/components/ui/button";
+'use client';
+import React, { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabaseClient';
+import { Input } from '@/components/ui/input';
+import Logo from '@/components/ui/logo';
+import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
 const Page = () => {
+  const [loading, setLoading] = useState(true); // Add loading state
+  const router = useRouter();
+
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (session) {
+        // Redirect to dashboard if the user is already signed in
+        router.push('/dashboard');
+      } else {
+        setLoading(false); // Stop loading if no session exists
+      }
+    };
+
+    checkSession();
+  }, [router]);
+
+  const handleGoogleLogin = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: `${window.location.origin}/dashboard`,
+      },
+    });
+    if (error) {
+      alert('Error logging in with Google');
+      console.error('Error logging in with Google:', error.message);
+    }
+  };
+
+  if (loading) {
+    return <div className="flex items-center justify-center h-screen">Loading...</div>;
+  }
+
   return (
-    <form className="border rounded-2xl w-full max-w-md p-4 mx-auto my-[50px] flex flex-col items-center gap-1 space-y-4">
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+      className="border rounded-2xl w-full max-w-md p-4 mx-auto my-[50px] flex flex-col items-center gap-1 space-y-4"
+    >
       <Logo />
       <h1 className="text-4xl font-bold">Sign Up</h1>
-      <Button variant={'outline'} className="w-full">
+      <Button
+        variant={'outline'}
+        className="w-full"
+        onClick={handleGoogleLogin}
+      >
         <svg
           width={40}
           height={40}
@@ -41,9 +88,11 @@ const Page = () => {
       <Input placeholder="Email" />
       <Input placeholder="Password" />
       <Input placeholder="Confirm Password" />
-      <Button className="w-full">Sign Up</Button>
+      <Button type="submit" disabled className="w-full cursor-not-allowed">
+        Sign Up
+      </Button>
       <p>
-        Already have an account?{" "}
+        Already have an account?{' '}
         <a href="/login" className="text-blue-500">
           Login
         </a>
