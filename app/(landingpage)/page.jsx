@@ -6,7 +6,7 @@ import Logo from "@/components/ui/logo";
 export default function Home() {
   return (
     <>
-      <header className="p-2 flex items-center gap-3 border-b border-gray-200 px-6">
+      <header className="p-2 flex items-center gap-3 border-b border-gray-200 px-6 sticky top-0 bg-[#FFFFFFA9] backdrop-filter backdrop-blur-sm z-10">
         <Logo />
         <Link href="/signup" className="ml-auto">
           <Button variant={"outline"}>
@@ -20,7 +20,7 @@ export default function Home() {
         </Link>
       </header>
       <main>
-        <section className="flex flex-col items-center justify-center gap-4 py-16">
+        <section className="flex flex-col items-center justify-center gap-4 px-6 py-16">
           <h1 className="text-5xl font-bold text-center">Welcome to Flames</h1>
           <p className="text-lg text-center text-gray-600">
             A platform to share your educational resources and connect with
@@ -32,7 +32,7 @@ export default function Home() {
             </span>
           </Link>
         </section>
-        <section className="flex flex-col items-center justify-center gap-4 py-16 bg-gray-100">
+        <section className="flex flex-col items-center justify-center gap-4 py-16 px-6 bg-gray-100">
           <h2 className="text-3xl font-bold text-center">Features</h2>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col items-center gap-2 p-4 bg-white rounded shadow-md">
@@ -150,7 +150,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="flex flex-col items-center justify-center gap-4 py-16 bg-gray-200">
+        <section className="flex flex-col items-center justify-center gap-4 py-16 px-6 bg-gray-200">
           <h2 className="text-3xl font-bold text-center">Stay Updated</h2>
           <p className="text-lg text-center">
             Subscribe to our newsletter to get the latest updates and resources.
@@ -164,7 +164,7 @@ export default function Home() {
             />
             <button
               type="submit"
-              className="bg-primary text-white px-6 py-3 rounded hover:bg-secondary-dark transition"
+              className="bg-primary max-sm:w-full text-white px-6 py-3 rounded hover:bg-secondary-dark transition"
             >
               Subscribe
             </button>
@@ -189,23 +189,23 @@ export default function Home() {
               </svg>
               <span className="text-xl font-bold">Flames</span>
             </Link>
-            <p className="text-gray-400 text-sm mt-2 text-center md:text-left">
+            <p className="text-[#f2f2f2] text-sm mt-2 text-center md:text-left">
               A platform to share educational resources and connect with others.
             </p>
           </div>
 
           {/* Navigation Links */}
           <div className="flex flex-col md:flex-row gap-4 text-center">
-            <Link href="/about" className="text-gray-400 hover:text-white">
+            <Link href="/about" className="text-[#f2f2f2] hover:text-white">
               About Us
             </Link>
-            <Link href="/contact" className="text-gray-400 hover:text-white">
+            <Link href="/contact" className="text-[#f2f2f2] hover:text-white">
               Contact
             </Link>
-            <Link href="/privacy" className="text-gray-400 hover:text-white">
+            <Link href="/privacy" className="text-[#f2f2f2] hover:text-white">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-gray-400 hover:text-white">
+            <Link href="/terms" className="text-[#f2f2f2] hover:text-white">
               Terms of Service
             </Link>
           </div>
@@ -215,7 +215,7 @@ export default function Home() {
             <Link
               href="https://facebook.com"
               target="_blank"
-              className="text-gray-400 hover:text-white"
+              className="text-[#f2f2f2] hover:text-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -230,7 +230,7 @@ export default function Home() {
             <Link
               href="https://twitter.com"
               target="_blank"
-              className="text-gray-400 hover:text-white"
+              className="text-[#f2f2f2] hover:text-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -245,7 +245,7 @@ export default function Home() {
             <Link
               href="https://instagram.com"
               target="_blank"
-              className="text-gray-400 hover:text-white"
+              className="text-[#f2f2f2] hover:text-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -260,7 +260,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="text-center text-gray-400 text-sm mt-4">
+        <div className="text-center text-white text-sm mt-4">
           © {new Date().getFullYear()} Flames. All rights reserved.
         </div>
       </footer>

@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
-import { Input } from '@/components/ui/input';
+// import { Input } from '@/components/ui/input';
 import Logo from '@/components/ui/logo';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
@@ -47,7 +47,7 @@ const Page = () => {
       onSubmit={(e) => {
         e.preventDefault();
       }}
-      className="border rounded-2xl w-full max-w-md p-4 mx-auto my-[50px] flex flex-col items-center gap-1 space-y-4"
+      className="border rounded-2xl w-[90%] max-w-md p-4 mx-auto my-[50px] flex flex-col items-center gap-1 space-y-4"
     >
       <Logo />
       <h1 className="text-4xl font-bold">Sign Up</h1>
