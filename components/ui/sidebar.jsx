@@ -7,7 +7,7 @@ const Sidebar = (props) => {
   const pathname = usePathname(); // Get the current route
 
   return (
-    <section className="bg-gray-100 h-screen w-64 p-4 flex flex-col justify-between">
+    <section className="bg-gray-100 h-screen w-64 p-4 hidden md:flex flex-col justify-between">
       <div>
         <Logo />
         <nav className="mt-8 flex flex-col gap-4">
