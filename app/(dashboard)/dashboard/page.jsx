@@ -1,71 +1,90 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { supabase } from '@/lib/supabaseClient';
-import Sidebar from '@/components/ui/sidebar';
+"use client";
+import React, { useEffect, useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Button } from "@/components/ui/button";
+
 
 const Page = () => {
-  const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null);
-  const router = useRouter();
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-
-      if (!session) {
-        // Redirect to login if no session exists
-        router.push('/signup');
-      } else {
-        setUser(session.user); // Set the user details
-        setLoading(false);
-      }
-    };
-
-    checkAuth();
-  }, [router]);
-
-  const handleLogout = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (error) {
-      console.error('Error logging out:', error.message);
-    } else {
-      router.push('/signup'); // Redirect to login page after logout
-    }
-  };
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   return (
-    <div className='flex'>
-    <Sidebar onClick={handleLogout} />
-    <div className="p-4 flex-1/2">
-      <h1 className="text-2xl font-bold mb-4">Dashboard Page</h1>
-
-      {/* Profile Card */}
-      <div className="flex items-center gap-4 p-4 bg-gray-100 rounded shadow-md">
-        <img
-          src={user?.user_metadata?.avatar_url || '/user.png'}
-          alt="User Avatar"
-          className="w-16 h-16 rounded-full"
-        />
-        <div>
-          <h2 className="text-xl font-semibold">{user?.user_metadata?.full_name || 'User'}</h2>
-          <p className="text-gray-600">{user?.email}</p>
-        </div>
-      </div>
-
-      {/* Logout Button */}
-      <button
-        onClick={handleLogout}
-        className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
-      >
-        Log Out
-      </button>
-    </div>
-    </div>
+        <section className="mt-4">
+          <h2 className="text-2xl font-bold my-4">Resources</h2>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
+            <Card>
+              <CardHeader>
+                <CardTitle>MTS 216</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>MTS 216 Past question 2024/2025</p>
+              </CardContent>
+              <CardFooter>
+                <Button className='text-white'>Download</Button>
+              </CardFooter>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>MTS 216</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>MTS 216 Past question 2024/2025</p>
+              </CardContent>
+              <CardFooter>
+                <Button className='text-white'>Download</Button>
+              </CardFooter>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>MTS 216</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>MTS 216 Past question 2024/2025</p>
+              </CardContent>
+              <CardFooter>
+                <Button className='text-white'>Download</Button>
+              </CardFooter>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>MTS 216</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>MTS 216 Past question 2024/2025</p>
+              </CardContent>
+              <CardFooter>
+                <Button className='text-white'>Download</Button>
+              </CardFooter>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>MTS 216</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>MTS 216 Past question 2024/2025</p>
+              </CardContent>
+              <CardFooter>
+                <Button className='text-white'>Download</Button>
+              </CardFooter>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>MTS 216</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>MTS 216 Past question 2024/2025</p>
+              </CardContent>
+              <CardFooter>
+                <Button className='text-white'>Download</Button>
+              </CardFooter>
+            </Card>
+          </div>
+        </section>
   );
 };
 

@@ -9,14 +9,10 @@ export default function Home() {
       <header className="p-2 flex items-center gap-3 border-b border-gray-200 px-6 sticky top-0 bg-[#FFFFFFA9] backdrop-filter backdrop-blur-sm z-10">
         <Logo />
         <Link href="/signup" className="ml-auto">
-          <Button variant={"outline"}>
-            Sign In
-          </Button>
+          <Button variant={"outline"}>Sign In</Button>
         </Link>
-        <Link href='/signup'>
-          <Button>
-            Sign Up
-          </Button>
+        <Link href="/signup">
+          <Button className="text-white">Sign Up</Button>
         </Link>
       </header>
       <main>
@@ -261,7 +257,10 @@ export default function Home() {
           </div>
         </div>
         <div className="text-center text-white text-sm mt-4">
-          © {new Date().getFullYear()} Flames. All rights reserved.
+          © {new Date().getFullYear()} Flames. All rights reserved. Powered by{" "}
+          <a className="underline" href="https://ayscript.vercel.app">
+            Ayscript
+          </a>
         </div>
       </footer>
     </>
